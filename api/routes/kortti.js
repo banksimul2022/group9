@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const book = require('../models/kortti_model');
+const kortti = require('../models/kortti_model');
 
 router.get('/:id?',
  function(request, response) {
   if (request.params.id) {
-    book.getById(request.params.id, function(err, dbResult) {
+    kortti.getById(request.params.id, function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -13,7 +13,7 @@ router.get('/:id?',
       }
     });
   } else {
-    book.getAll(function(err, dbResult) {
+    kortti.getAll(function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -26,7 +26,7 @@ router.get('/:id?',
 
 router.post('/',
 function(request, response) {
-  book.add(request.body, function(err, dbResult) {
+  kortti.add(request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -38,7 +38,7 @@ function(request, response) {
 
 router.delete('/:id',
 function(request, response) {
-  book.delete(request.params.id, function(err, dbResult) {
+  kortti.delete(request.params.id, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
@@ -50,7 +50,7 @@ function(request, response) {
 
 router.put('/:id',
 function(request, response) {
-  book.update(request.params.id, request.body, function(err, dbResult) {
+  kortti.update(request.params.id, request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {

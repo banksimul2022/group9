@@ -13,7 +13,7 @@ router.get('/:id?',
       }
     });
   } else {
-    asiakas.get(function(err, dbResult) {
+    asiakas.getAll(function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {

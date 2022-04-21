@@ -5,19 +5,20 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema atm
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema atm
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS atm DEFAULT CHARACTER SET utf8 ;
+GRANT ALL on atm.* to 'Toope'@'localhost';
+USE atm ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Asiakas`
+-- Table atm.`Asiakas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Asiakas` (
+CREATE TABLE IF NOT EXISTS atm.`Asiakas` (
   `idAsiakas` INT NOT NULL,
   `Tunnus` VARCHAR(45) NOT NULL,
   `Nimi` VARCHAR(45) NOT NULL,
@@ -29,9 +30,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tili`
+-- Table atm.`Tili`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tili` (
+CREATE TABLE IF NOT EXISTS atm.`Tili` (
   `Tilinro` INT NOT NULL,
   `Saldo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Tilinro`),
@@ -40,9 +41,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Kortti`
+-- Table atm.`Kortti`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Kortti` (
+CREATE TABLE IF NOT EXISTS atm.`Kortti` (
   `KorttiNro` INT NOT NULL,
   `Tunnusluku` VARCHAR(255) NOT NULL,
   `idAsiakas` INT NOT NULL,
@@ -53,21 +54,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Kortti` (
   INDEX `fk_Kortti_Tili1_idx` (`Tili_Tilinro` ASC) VISIBLE,
   CONSTRAINT `fk_Kortti_Asiakas1`
     FOREIGN KEY (`idAsiakas`)
-    REFERENCES `mydb`.`Asiakas` (`idAsiakas`)
+    REFERENCES atm.`Asiakas` (`idAsiakas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Kortti_Tili1`
     FOREIGN KEY (`Tili_Tilinro`)
-    REFERENCES `mydb`.`Tili` (`Tilinro`)
+    REFERENCES atm.`Tili` (`Tilinro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tilitapahtumat`
+-- Table atm.`Tilitapahtumat`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Tilitapahtumat` (
+CREATE TABLE IF NOT EXISTS atm.`Tilitapahtumat` (
   `id_Tilitapahtuma` INT NOT NULL,
   `PvmAika` DATETIME NOT NULL,
   `Tapahtuma` VARCHAR(45) NOT NULL,
@@ -77,16 +78,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Tilitapahtumat` (
   INDEX `fk_Tilitapahtumat_Tili1_idx` (`Tilinro` ASC) VISIBLE,
   CONSTRAINT `fk_Tilitapahtumat_Tili1`
     FOREIGN KEY (`Tilinro`)
-    REFERENCES `mydb`.`Tili` (`Tilinro`)
+    REFERENCES atm.`Tili` (`Tilinro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Asiakas_has_Tili`
+-- Table atm.`Asiakas_has_Tili`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Asiakas_has_Tili` (
+CREATE TABLE IF NOT EXISTS atm.`Asiakas_has_Tili` (
   `idAsiakas` INT NOT NULL,
   `Tilinro` INT NOT NULL,
   PRIMARY KEY (`idAsiakas`, `Tilinro`),
@@ -94,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Asiakas_has_Tili` (
   INDEX `fk_Asiakas_has_Tili_Asiakas_idx` (`idAsiakas` ASC) VISIBLE,
   CONSTRAINT `fk_Asiakas_has_Tili_Asiakas`
     FOREIGN KEY (`idAsiakas`)
-    REFERENCES `mydb`.`Asiakas` (`idAsiakas`)
+    REFERENCES atm.`Asiakas` (`idAsiakas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Asiakas_has_Tili_Tili1`
     FOREIGN KEY (`Tilinro`)
-    REFERENCES `mydb`.`Tili` (`Tilinro`)
+    REFERENCES atm.`Tili` (`Tilinro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
