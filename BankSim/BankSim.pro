@@ -12,35 +12,35 @@ SOURCES += \
     ew1.cpp \
     ew2.cpp \
     ew3.cpp \
-    ew4.cpp \
     ew5.cpp \
     ew6.cpp \
     ew7.cpp \
     ew8.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    pin.cpp
 
 HEADERS += \
     ew1.h \
     ew2.h \
     ew3.h \
-    ew4.h \
     ew5.h \
     ew6.h \
     ew7.h \
     ew8.h \
-    mainwindow.h
+    mainwindow.h \
+    pin.h
 
 FORMS += \
-    ew1.ui \
+    OttoLahjoitus.ui \
     ew2.ui \
     ew3.ui \
-    ew4.ui \
     ew5.ui \
     ew6.ui \
     ew7.ui \
     ew8.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    pin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

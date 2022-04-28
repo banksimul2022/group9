@@ -33,7 +33,7 @@ void EW5::on_B3_clicked()
 
 void EW5::on_B4_clicked()
 {
-
+    this->close();
 }
 
 

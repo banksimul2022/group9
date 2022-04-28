@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     pEW1 = new EW1(this);
     pEW2 = new EW2(this);
     pEW3 = new EW3(this);
-    pEW4 = new EW4(this);
+    //pEW4 = new EW4(this);
     pEW5 = new EW5(this);
     pEW6 = new EW6(this);
     pEW7 = new EW7(this);
@@ -23,7 +23,7 @@ MainWindow::~MainWindow()
     delete pEW1;
     delete pEW2;
     delete pEW3;
-    delete pEW4;
+    //delete pEW4;
     delete pEW5;
     delete pEW6;
     delete pEW7;
@@ -51,7 +51,7 @@ void MainWindow::on_B3_clicked()
 
 void MainWindow::on_B4_clicked()
 {
-    pEW4->exec();
+    this->close();
 }
 
 
