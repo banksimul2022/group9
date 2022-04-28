@@ -17,6 +17,10 @@ void DLLRestApi::getAsiakas(QString idAsiakas)
        qDebug() << "DLLRestApi::getAsiakas = " + site_url;
 
        QNetworkRequest request ((site_url));
+       QString credentials="Toope:admin";
+       QByteArray data = credentials.toLocal8Bit().toBase64();
+       QString headerData = "Basic " + data;
+       request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
        getAsiakasManager = new QNetworkAccessManager(this);
        connect(getAsiakasManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(getAsiakasSlot(QNetworkReply*)));
@@ -58,6 +62,10 @@ void DLLRestApi::getSaldo(QString TiliNro)
     qDebug() << "DLLRestApi::getSaldo = " + site_url;
 
     QNetworkRequest request((site_url));
+    QString credentials="Toope:admin";
+    QByteArray data = credentials.toLocal8Bit().toBase64();
+    QString headerData = "Basic " + data;
+    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     getSaldoManager = new QNetworkAccessManager(this);
     connect(getSaldoManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getSaldoSlot(QNetworkReply*)));
@@ -91,6 +99,10 @@ void DLLRestApi::Nosto(QString Tilinro, QString Summa)
 
     QString site_url="http://localhost:3000/Tili";
     QNetworkRequest request((site_url));
+    QString credentials="Toope:admin";
+    QByteArray data = credentials.toLocal8Bit().toBase64();
+    QString headerData = "Basic " + data;
+    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
     connect(NostoManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(NostoSlot(QNetworkReply*)));
@@ -127,4 +139,48 @@ void DLLRestApi::getKorttiSlot(QNetworkReply *reply)
     reply->deleteLater();
     getKorttiManager->deleteLater();
 
+}
+
+void DLLRestApi::getKymmenenTilitapahtumaa(QString Tilinro)
+{
+       QString site_url="http://localhost:3000/asiakas/" + Tilinro + "/"; // kutsu backendiin
+       qDebug() << "DLLRestApi::getKymmenenTilitapahtumaa = " + site_url;
+
+       QNetworkRequest request ((site_url));
+       QString credentials="Toope:admin";
+       QByteArray data = credentials.toLocal8Bit().toBase64();
+       QString headerData = "Basic " + data;
+       request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+
+       getKymmenenTilitapahtumaaManager = new QNetworkAccessManager(this);
+       connect(getKymmenenTilitapahtumaaManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(getKymmenenTilitapahtumaaSlot(QNetworkReply*)));
+       reply = getKymmenenTilitapahtumaaManager->get(request);
+}
+
+void DLLRestApi::getKymmenenTilitapahtumaaSlot(QNetworkReply *reply)
+{
+    qDebug() << "DLLRestApi::getKymmenenTilitapahtumaa";
+    QByteArray response_data=reply->readAll();
+    qDebug() << response_data;
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+
+    for (int i = 0; i < 10; i++)
+    {
+    foreach (const QJsonValue &value, json_array)
+    {
+        QJsonObject json_obj = value.toObject();
+        qDebug() << "PvmAika=" + json_obj["PvmAika"].toString();
+    }
+
+    foreach (const QJsonValue &value, json_array)
+    {
+        QJsonObject json_obj = value.toObject();
+        qDebug() << "Summa=" + json_obj["Summa"].toString();
+    }
+    }
+
+    reply->deleteLater();
+    getKymmenenTilitapahtumaaManager->deleteLater();
 }
