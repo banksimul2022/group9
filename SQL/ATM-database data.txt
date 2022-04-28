@@ -1,0 +1,9 @@
+INSERT INTO asiakas(idAsiakas, Tunnus, Nimi, Osoite, Puhelinnumero) VALUES (1, '00001', 'Aku Ankka', 'Paratiisitie 13', '0401234567');
+INSERT INTO asiakas(idAsiakas, Tunnus, Nimi, Osoite, Puhelinnumero) VALUES (2, '00002', 'Roope Ankka', 'Rahasäiliönkukkula 1', '0500312426');
+INSERT INTO tili VALUES (123456, 13);
+INSERT INTO tili VALUES (987654, 95462354813256);
+INSERT INTO asiakas_has_tili VALUES (1, 123456);
+INSERT INTO asiakas_has_tili VALUES (2, 987654);
+INSERT INTO kortti VALUES (1, '1234', 1, 123456);
+INSERT INTO kortti VALUES (2, '9876', 2, 987654);
+INSERT INTO tilitapahtumat VALUES (1, "2022-04-20 12:12:12","nosto", -1, 123456);
