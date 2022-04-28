@@ -133,7 +133,7 @@ void DLLRestApi::getKorttiSlot(QNetworkReply *reply)
     foreach (const QJsonValue &value, json_array)
     {
         QJsonObject json_obj = value.toObject();
-        qDebug() << "Kortti=" + json_obj["Kortti"].toString();
+        qDebug() << json_obj["Tunnusluku"].toString();
     }
 
     reply->deleteLater();
