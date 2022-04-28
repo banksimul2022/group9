@@ -100,5 +100,9 @@ void LoginDialog::on_CORRECT_clicked()
 void LoginDialog::on_ACCEPT_clicked()
 {
 
+    QString t = ui->PINCODELINE->text();
+    qDebug() << "Lineedit: " + t;
+    emit loginSignal(t);
+
 }
 
