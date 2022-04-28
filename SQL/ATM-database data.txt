@@ -6,3 +6,4 @@ INSERT INTO asiakas_has_tili VALUES (1, 123456);
 INSERT INTO asiakas_has_tili VALUES (2, 987654);
 INSERT INTO kortti VALUES (1, '1234', 1, 123456);
 INSERT INTO kortti VALUES (2, '9876', 2, 987654);
+INSERT INTO tilitapahtumat VALUES (1, "2022-04-20 12:12:12","nosto", -1, 123456);
