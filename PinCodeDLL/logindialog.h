@@ -14,13 +14,12 @@ class LoginDialog : public QDialog
 public:
     explicit LoginDialog(QWidget *parent = nullptr);
     ~LoginDialog();
-    QString PINCODE;
+
 
 signals:
     void loginSignal(QString);
 
 private slots:
-    //void on_buttonBox_accepted();
 
     void on_BTN_1_clicked();
 
@@ -40,10 +39,6 @@ private slots:
 
     void on_BTN_9_clicked();
 
-    //void on_pushButton_clicked();
-
-    //void on_pushButton_2_clicked();
-
     void on_REMOVE_clicked();
 
     void on_CORRECT_clicked();
@@ -52,6 +47,7 @@ private slots:
 
 private:
     Ui::LoginDialog *ui;
+    QString PCODE;
 };
 
 #endif // LOGINDIALOG_H

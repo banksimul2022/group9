@@ -9,7 +9,6 @@ class PINCODEDLL_EXPORT PinCodeDLL
 public:
     PinCodeDLL();
     ~PinCodeDLL();
-    void tulostaTerveisia();
     void login();
 
     LoginDialog* logindialog;

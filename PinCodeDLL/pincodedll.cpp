@@ -11,11 +11,6 @@ PinCodeDLL::~PinCodeDLL()
     delete logindialog;
 }
 
-void PinCodeDLL::tulostaTerveisia()
-{
-    qDebug() <<"Terveisiä pincodeDLL:stä";
-}
-
 void PinCodeDLL::login()
 {
     logindialog->show();
