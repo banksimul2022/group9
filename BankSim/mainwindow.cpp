@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    pinCode = new PinCodeDLL;
+    connect(pinCode->logindialog, SIGNAL(loginSignal(QString)),
+            this,SLOT(loginSlot(QString)));
     pEW1 = new EW1(this);
     pEW2 = new EW2(this);
     pEW3 = new EW3(this);
@@ -75,6 +78,6 @@ void MainWindow::on_B7_clicked()
 
 void MainWindow::on_B8_clicked()
 {
-    pEW8->exec();
+    pinCode->login();
 }
 

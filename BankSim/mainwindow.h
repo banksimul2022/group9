@@ -9,7 +9,7 @@
 #include "ew6.h"
 #include "ew7.h"
 #include "ew8.h"
-
+#include "pincodedll.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,6 +23,8 @@ public:
     ~MainWindow();
 
 private slots:
+
+    void loginSignal(QString);
 
     void on_B1_clicked();
 
@@ -42,6 +44,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    PinCodeDLL* pinCode;
     EW1 * pEW1;
     EW2 * pEW2;
     EW3 * pEW3;
