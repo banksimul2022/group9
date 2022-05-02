@@ -1,6 +1,8 @@
 QT -= gui
 QT +=network
 
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 TEMPLATE = lib
 DEFINES += DLLRESTAPI_LIBRARY
 
@@ -22,3 +24,5 @@ unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
+
+FORMS +=

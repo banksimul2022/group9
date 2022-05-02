@@ -56,7 +56,7 @@ void DLLRestApi::getAsiakasSlot(QNetworkReply *reply)
     getAsiakasManager->deleteLater();
 }
 
-void DLLRestApi::getSaldo(QString TiliNro)
+/*void DLLRestApi::getSaldo(QString TiliNro)
 {
     QString site_url="http://localhost:3000/Tili/" + TiliNro +"/";
     qDebug() << "DLLRestApi::getSaldo = " + site_url;
@@ -184,3 +184,4 @@ void DLLRestApi::getKymmenenTilitapahtumaaSlot(QNetworkReply *reply)
     reply->deleteLater();
     getKymmenenTilitapahtumaaManager->deleteLater();
 }
+*/
