@@ -10,6 +10,7 @@
 #include "ew7.h"
 #include "ew8.h"
 #include "pincodedll.h"
+#include "dllrestapi.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -52,6 +53,7 @@ private:
     EW6 * pEW6;
     EW7 * pEW7;
     EW8 * pEW8;
+    DLLRestApi* pDLLRestApi;
 
 };
 #endif // MAINWINDOW_H

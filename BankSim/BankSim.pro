@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,7 +31,7 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
-    OttoLahjoitus.ui \
+    ew1.ui \
     ew2.ui \
     ew3.ui \
     ew5.ui \

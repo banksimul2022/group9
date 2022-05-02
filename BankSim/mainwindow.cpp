@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     pinCode = new PinCodeDLL;
+    //pDLLRestApi = new DLLRestApi;
     connect(pinCode->logindialog, SIGNAL(loginSignal(QString)),
             this,SLOT(loginSignal(QString)));
     pEW1 = new EW1(this);
@@ -22,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    //delete pDLLRestApi;
     delete pEW1;
     delete pEW2;
     delete pEW3;
@@ -81,6 +83,7 @@ void MainWindow::on_B7_clicked()
 
 void MainWindow::on_B8_clicked()
 {
-    pinCode->login();
+    //pDLLRestApi->getAsiakas("1");
+    //pinCode->login();
 }
 
