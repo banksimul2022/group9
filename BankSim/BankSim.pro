@@ -17,8 +17,7 @@ SOURCES += \
     ew7.cpp \
     ew8.cpp \
     main.cpp \
-    mainwindow.cpp \
-    pin.cpp
+    mainwindow.cpp
 
 HEADERS += \
     ew1.h \
@@ -28,8 +27,7 @@ HEADERS += \
     ew6.h \
     ew7.h \
     ew8.h \
-    mainwindow.h \
-    pin.h
+    mainwindow.h
 
 FORMS += \
     OttoLahjoitus.ui \
@@ -39,17 +37,16 @@ FORMS += \
     ew6.ui \
     ew7.ui \
     ew8.ui \
-    mainwindow.ui \
-    pin.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../PinCodeDLL/build/release/ -lPinCodeDLL
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../PinCodeDLL/build/debug/ -lPinCodeDLL
-else:unix: LIBS += -L$$PWD/../PinCodeDLL/build/ -lPinCodeDLL
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-PinCodeDLL-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/release/ -lPinCodeDLL
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-PinCodeDLL-Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/ -lPinCodeDLL
 
 INCLUDEPATH += $$PWD/../PinCodeDLL
 DEPENDPATH += $$PWD/../PinCodeDLL

@@ -1,6 +1,5 @@
 QT -= gui
 QT += widgets
-
 TEMPLATE = lib
 DEFINES += PINCODEDLL_LIBRARY
 

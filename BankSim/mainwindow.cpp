@@ -8,11 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     pinCode = new PinCodeDLL;
     connect(pinCode->logindialog, SIGNAL(loginSignal(QString)),
-            this,SLOT(loginSlot(QString)));
+            this,SLOT(loginSignal(QString)));
     pEW1 = new EW1(this);
     pEW2 = new EW2(this);
     pEW3 = new EW3(this);
-    //pEW4 = new EW4(this);
     pEW5 = new EW5(this);
     pEW6 = new EW6(this);
     pEW7 = new EW7(this);
@@ -26,11 +25,15 @@ MainWindow::~MainWindow()
     delete pEW1;
     delete pEW2;
     delete pEW3;
-    //delete pEW4;
     delete pEW5;
     delete pEW6;
     delete pEW7;
     delete pEW8;
+}
+
+void MainWindow::loginSignal(QString)
+{
+
 }
 
 
