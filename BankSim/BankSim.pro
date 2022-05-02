@@ -50,3 +50,9 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-PinCodeDLL-Des
 
 INCLUDEPATH += $$PWD/../PinCodeDLL
 DEPENDPATH += $$PWD/../PinCodeDLL
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../DLLRetsAPI/build-DLLRestApi-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/release/ -lDLLRestApi
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../DLLRetsAPI/build-DLLRestApi-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/debug/ -lDLLRestApi
+
+INCLUDEPATH += $$PWD/../DLLRetsAPI/DLLRestApi
+DEPENDPATH += $$PWD/../DLLRetsAPI/DLLRestApi
