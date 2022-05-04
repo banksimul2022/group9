@@ -9,8 +9,8 @@ const tilitapahtumat = {
   },
   add: function(tilitapahtumat, callback) {
     return db.query(
-      'insert into tilitapahtumat (id_Tilitapahtuma,PvmAika,Tapahtuma,Summa,Tilinro) values(?,?,?,?,?)',
-      [tilitapahtumat.id_Tilitapahtuma, tilitapahtumat.PvmAika, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.Tilinro],
+      'insert into tilitapahtumat (PvmAika,Tapahtuma,Summa,Tilinro) values(?,?,?,?)',
+      [tilitapahtumat.PvmAika, tilitapahtumat.Tapahtuma, tilitapahtumat.Summa, tilitapahtumat.Tilinro],
       callback
     );
   },
