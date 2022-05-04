@@ -13,5 +13,5 @@ PinCodeDLL::~PinCodeDLL()
 
 void PinCodeDLL::login()
 {
-    logindialog->show();
+    logindialog->exec();
 }

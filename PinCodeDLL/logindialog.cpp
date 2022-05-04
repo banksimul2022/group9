@@ -1,6 +1,7 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 #include <qdebug.h>
+#include "pincodedll.h"
 
 LoginDialog::LoginDialog(QWidget *parent) :
     QDialog(parent),
@@ -85,14 +86,14 @@ void LoginDialog::on_REMOVE_clicked()
 
 void LoginDialog::on_CORRECT_clicked()
 {
-    ui->PINCODELINE->setText(NULL);
+    ui->PINCODELINE=NULL;
 }
 
 
 void LoginDialog::on_ACCEPT_clicked()
 {
-    QString t = ui->PINCODELINE->text();
-    qDebug() << "Lineedit: " + t;
-    emit loginSignal(t);
+    PIN = ui->PINCODELINE->text();
+    qDebug() << "Lineedit: " + PIN;
+    emit loginSignal(PIN);
 }
 

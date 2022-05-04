@@ -55,7 +55,7 @@
       <item row="3" column="0">
        <widget class="QPushButton" name="B3">
         <property name="text">
-         <string>Tilan valinta</string>
+         <string>Tilin valinta</string>
         </property>
        </widget>
       </item>

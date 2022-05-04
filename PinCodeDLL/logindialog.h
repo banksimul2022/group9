@@ -14,10 +14,12 @@ class LoginDialog : public QDialog
 public:
     explicit LoginDialog(QWidget *parent = nullptr);
     ~LoginDialog();
-
+    QString PIN;
+    QString PCODE;
 
 signals:
     void loginSignal(QString);
+
 
 private slots:
 
@@ -47,7 +49,7 @@ private slots:
 
 private:
     Ui::LoginDialog *ui;
-    QString PCODE;
+
 };
 
 #endif // LOGINDIALOG_H

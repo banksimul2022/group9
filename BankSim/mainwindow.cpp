@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "pincodedll.h"
+#include <qdebug.h>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,9 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     pinCode = new PinCodeDLL;
-    //pDLLRestApi = new DLLRestApi;
     connect(pinCode->logindialog, SIGNAL(loginSignal(QString)),
-            this,SLOT(loginSignal(QString)));
+            this,SLOT(loginSlot(QString)));
+    pinCode->login();
+    //pDLLRestApi = new DLLRestApi;
     pEW1 = new EW1(this);
     pEW2 = new EW2(this);
     pEW3 = new EW3(this);
@@ -17,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     pEW6 = new EW6(this);
     pEW7 = new EW7(this);
     pEW8 = new EW8(this);
-
 }
 
 MainWindow::~MainWindow()
@@ -33,57 +36,67 @@ MainWindow::~MainWindow()
     delete pEW8;
 }
 
-void MainWindow::loginSignal(QString)
+void MainWindow::loginSlot(QString)
 {
-
+    qDebug()<<"Message recieved";
+    qDebug()<<pinCode->logindialog->PCODE;
+    PIN=pinCode->logindialog->PCODE;
+    qDebug()<<PIN;
 }
-
 
 void MainWindow::on_B1_clicked()
 {
+    if (PIN=="1234")
     pEW1->exec();
 }
 
 
 void MainWindow::on_B2_clicked()
 {
+    if (PIN=="1234")
     pEW2->exec();
 }
 
 
 void MainWindow::on_B3_clicked()
 {
+    if (PIN=="1234")
     pEW3->exec();
 }
 
 
 void MainWindow::on_B4_clicked()
 {
+    if (PIN=="1234")
     this->close();
 }
 
 
 void MainWindow::on_B5_clicked()
 {
+    if (PIN=="1234")
     pEW5->exec();
 }
 
 
 void MainWindow::on_B6_clicked()
 {
+    if (PIN=="1234")
     pEW6->exec();
 }
 
 
 void MainWindow::on_B7_clicked()
 {
+    if (PIN=="1234")
     pEW7->exec();
 }
 
 
 void MainWindow::on_B8_clicked()
 {
+    //if (PIN=="1234")
     //pDLLRestApi->getAsiakas("1");
-    //pinCode->login();
+
 }
 

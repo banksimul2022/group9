@@ -34,6 +34,8 @@ private slots:
 
 private:
     Ui::EW5 *ui;
+    int Otto;
+    int Saldo;
 };
 
 #endif // EW5_H

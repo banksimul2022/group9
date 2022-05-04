@@ -22,10 +22,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+QString PIN;
+signals:
+
+    void UiStartSignal();
 
 private slots:
 
-    void loginSignal(QString);
+    void loginSlot(QString);
 
     void on_B1_clicked();
 
@@ -44,6 +48,7 @@ private slots:
     void on_B8_clicked();
 
 private:
+
     Ui::MainWindow *ui;
     PinCodeDLL* pinCode;
     EW1 * pEW1;
@@ -54,6 +59,7 @@ private:
     EW7 * pEW7;
     EW8 * pEW8;
     DLLRestApi* pDLLRestApi;
+
 
 };
 #endif // MAINWINDOW_H
