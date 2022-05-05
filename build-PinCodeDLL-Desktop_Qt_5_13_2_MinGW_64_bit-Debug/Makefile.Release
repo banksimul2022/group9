@@ -344,7 +344,9 @@ release/logindialog.o: ../PinCodeDLL/logindialog.cpp ../PinCodeDLL/logindialog.h
 		C:/Qt/5.13.2/mingw73_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.13.2/mingw73_64/include/QtGui/qtouchdevice.h \
-		ui_logindialog.h
+		ui_logindialog.h \
+		../PinCodeDLL/pincodedll.h \
+		../PinCodeDLL/PinCodeDLL_global.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\logindialog.o ..\PinCodeDLL\logindialog.cpp
 
 release/pincodedll.o: ../PinCodeDLL/pincodedll.cpp ../PinCodeDLL/pincodedll.h \
