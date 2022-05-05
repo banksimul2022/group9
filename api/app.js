@@ -11,7 +11,7 @@ const asiakasRouter = require('./routes/asiakas');
 const tiliRouter = require('./routes/tili');
 const korttiRouter = require('./routes/kortti');
 const asiakas_has_tiliRouter = require('./routes/asiakas_has_tili');
-const tilitapahtumatRouter = require('./routes/asiakas');
+const tilitapahtumatRouter = require('./routes/tilitapahtumat');
 // const userRouter = require('./routes/user');
 
 app.use(helmet());

@@ -1,5 +1,5 @@
 QT       += core gui
-QT       +=network
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -23,11 +23,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-
-
-
-
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-DLLRestApi-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/release/ -lDLLRestApi
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-DLLRestApi-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/debug/ -lDLLRestApi

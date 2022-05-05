@@ -23,29 +23,32 @@ public:
     void getKymmenenTilitapahtumaa(QString TiliNro);
     void getKortti(QString KorttiNro);
     QString returnResponseData();
-    void Nosto(QString TiliNro,QString Summa);
+  //  void Nosto(QString TiliNro,QString Summa);
+
 
 signals:
     void NimiSignal(QString);
     void OsoiteSignal(QString);
     void PuhelinnumeroSignal(QString);
     void getSaldoSignal(QString);
-  //  void postTilitapahtumaSignal(QString);
+    void postTilitapahtumaSignal(QString);
     void getKymmenenTilitapahtumaaSignal(QString);
     void getKorttiSignal(QString);
     void getAsiakasFromKorttiSignal(QString);
     void getTiliFromKorttiSignal(QString);
-    void NostoSignal(QString);
+//    void NostoSignal(QString);
+    void asiakasSignal(QStringList);
 
-private slots:
-    void getAsiakasSlot (QNetworkReply *reply);
+public slots:
+  //  void getAsiakasSlot (QNetworkReply *reply);
     void getSaldoSlot (QNetworkReply *reply);
  //   void getTilitapahtumaSlot(QNetworkReply *reply);
     void getKymmenenTilitapahtumaaSlot(QNetworkReply *reply);
     void getKorttiSlot(QNetworkReply *reply);
+    void testiAsiakas(QNetworkReply *reply);
  //   void getAsiakasFromKorttiSlot(QNetworkReply *reply);
  //   void getTiliFromKorttiSlot(QNetworkReply *reply);
-    void NostoSlot(QNetworkReply *reply);
+  //  void NostoSlot(QNetworkReply *reply);
 
 
 private:
@@ -56,7 +59,9 @@ private:
     QNetworkAccessManager *getKorttiManager;
     QNetworkAccessManager *getAsiakasFromKorttiManager;
     QNetworkAccessManager *getTiliFromKorttiManager;
-    QNetworkAccessManager *NostoManager;
+//    QNetworkAccessManager *NostoManager;
+
+    QStringList asiakastiedot;
 
     QNetworkReply *reply;
     QByteArray response_data;

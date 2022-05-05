@@ -23,11 +23,11 @@ void DLLRestApi::getAsiakas(QString idAsiakas)
        request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
        getAsiakasManager = new QNetworkAccessManager(this);
-       connect(getAsiakasManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(getAsiakasSlot(QNetworkReply*)));
+       connect(getAsiakasManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(testiAsiakas(QNetworkReply*)));
        reply = getAsiakasManager->get(request);
 }
 
-void DLLRestApi::getAsiakasSlot(QNetworkReply *reply)
+/* void DLLRestApi::getAsiakasSlot(QNetworkReply *reply)
 {
     qDebug() << "DLLRestApi::getAsiakas";
     QByteArray response_data=reply->readAll();
@@ -41,7 +41,8 @@ void DLLRestApi::getAsiakasSlot(QNetworkReply *reply)
         QJsonObject json_obj = value.toObject();
         qDebug() << "Nimi=" + json_obj["Nimi"].toString();
         Nimisig+= "Nimi=" + json_obj["Nimi"].toString();
-        emit NimiSignal(Nimisig);
+        qDebug() << "Nimi lähetetty";
+
     }
 
    QString Osoitesig;
@@ -50,7 +51,8 @@ void DLLRestApi::getAsiakasSlot(QNetworkReply *reply)
         QJsonObject json_obj = value.toObject();
         qDebug() << "Osoite=" + json_obj["Osoite"].toString();
         Osoitesig+= "Osoite=" + json_obj["Osoite"].toString();
-        emit OsoiteSignal(Osoitesig);
+        qDebug() << "Osoite lähetetty";
+
     }
 
     QString Puhnrosig;
@@ -59,12 +61,19 @@ void DLLRestApi::getAsiakasSlot(QNetworkReply *reply)
         QJsonObject json_obj = value.toObject();
         qDebug() << "Puhelinnumero=" + json_obj["Puhelinnumero"].toString();
         Puhnrosig+= "Puhelinnumero=" + json_obj["Puhelinnumero"].toString();
-        emit PuhelinnumeroSignal(Puhnrosig);
+        qDebug() << "Puhelinnumero lähetetty";
+
     }
+
+    emit NimiSignal(Nimisig);
+    emit OsoiteSignal(Osoitesig);
+    emit PuhelinnumeroSignal(Puhnrosig);
 
     reply->deleteLater();
     getAsiakasManager->deleteLater();
-}
+}   */
+
+
 
 void DLLRestApi::getSaldo(QString TiliNro)
 {
@@ -101,13 +110,13 @@ void DLLRestApi::getSaldoSlot(QNetworkReply *reply)
 
 }
 
-void DLLRestApi::Nosto(QString Tilinro, QString Summa)
+/* void DLLRestApi::Nosto(QString Tilinro, QString Summa)    //Ei toimi, korjataan jos jää aikaa
 {
+    QString site_url="http://localhost:3000/tili/" + Tilinro +"/";
     QJsonObject jsonObj;
-    jsonObj.insert("Tilinro",Tilinro);
     jsonObj.insert("Saldo",Summa);
+    qDebug() << "Nosto";
 
-    QString site_url="http://localhost:3000/tili";
     QNetworkRequest request((site_url));
     QString credentials="Toope:admin";
     QByteArray data = credentials.toLocal8Bit().toBase64();
@@ -129,7 +138,7 @@ void DLLRestApi::NostoSlot(QNetworkReply *reply)
     reply->deleteLater();
     NostoManager->deleteLater();
 
-}
+} */
 
 void DLLRestApi::getKortti(QString KorttiNro)
 {
@@ -145,6 +154,26 @@ void DLLRestApi::getKortti(QString KorttiNro)
     getKorttiManager = new QNetworkAccessManager(this);
     connect(getKorttiManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(getKorttiSlot(QNetworkReply*)));
     reply = getKorttiManager->get(request);
+}
+
+void DLLRestApi::testiAsiakas(QNetworkReply *reply)
+{
+    qDebug() << "DLLRestApi::getAsiakas";
+    QByteArray response_data=reply->readAll();
+    qDebug() << response_data;
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+
+    foreach (const QJsonValue &value, json_array)
+    {
+        QJsonObject json_obj = value.toObject();
+        asiakastiedot.append(json_obj["Nimi"].toString());
+        asiakastiedot.append(json_obj["Osoite"].toString());
+        asiakastiedot.append(json_obj["Puhelinnumero"].toString());
+    }
+    qDebug() <<"asiakastiedot lähetetty";
+    emit asiakasSignal(asiakastiedot);
 }
 
 void DLLRestApi::getKorttiSlot(QNetworkReply *reply)
