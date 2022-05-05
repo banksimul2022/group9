@@ -34,7 +34,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS atm.`Tili` (
   `Tilinro` INT NOT NULL,
-  `Saldo` VARCHAR(45) NOT NULL,
+  `Saldo` INT NOT NULL,
   PRIMARY KEY (`Tilinro`),
   UNIQUE INDEX `Tilinumero_UNIQUE` (`Tilinro` ASC) VISIBLE)
 ENGINE = InnoDB;
