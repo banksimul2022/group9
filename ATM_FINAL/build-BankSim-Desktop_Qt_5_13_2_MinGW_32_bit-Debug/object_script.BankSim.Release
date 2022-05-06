@@ -1,0 +1,17 @@
+release/ew1.o
+release/ew2.o
+release/ew3.o
+release/ew5.o
+release/ew6.o
+release/ew7.o
+release/ew8.o
+release/main.o
+release/mainwindow.o
+release/moc_ew1.o
+release/moc_ew2.o
+release/moc_ew3.o
+release/moc_ew5.o
+release/moc_ew6.o
+release/moc_ew7.o
+release/moc_ew8.o
+release/moc_mainwindow.o

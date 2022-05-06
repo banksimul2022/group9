@@ -1,0 +1,17 @@
+debug/ew1.o
+debug/ew2.o
+debug/ew3.o
+debug/ew5.o
+debug/ew6.o
+debug/ew7.o
+debug/ew8.o
+debug/main.o
+debug/mainwindow.o
+debug/moc_ew1.o
+debug/moc_ew2.o
+debug/moc_ew3.o
+debug/moc_ew5.o
+debug/moc_ew6.o
+debug/moc_ew7.o
+debug/moc_ew8.o
+debug/moc_mainwindow.o

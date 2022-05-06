@@ -15,14 +15,14 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QWidget>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_LoginDialog
 {
 public:
-    QWidget *gridLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QPushButton *BTN_9;
     QPushButton *BTN_2;
@@ -42,78 +42,79 @@ public:
     {
         if (LoginDialog->objectName().isEmpty())
             LoginDialog->setObjectName(QString::fromUtf8("LoginDialog"));
-        LoginDialog->resize(400, 300);
-        gridLayoutWidget = new QWidget(LoginDialog);
-        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(60, 40, 254, 138));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        LoginDialog->resize(344, 217);
+        verticalLayout = new QVBoxLayout(LoginDialog);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        BTN_9 = new QPushButton(gridLayoutWidget);
+        BTN_9 = new QPushButton(LoginDialog);
         BTN_9->setObjectName(QString::fromUtf8("BTN_9"));
 
         gridLayout->addWidget(BTN_9, 3, 2, 1, 1);
 
-        BTN_2 = new QPushButton(gridLayoutWidget);
+        BTN_2 = new QPushButton(LoginDialog);
         BTN_2->setObjectName(QString::fromUtf8("BTN_2"));
 
         gridLayout->addWidget(BTN_2, 1, 1, 1, 1);
 
-        BTN_4 = new QPushButton(gridLayoutWidget);
+        BTN_4 = new QPushButton(LoginDialog);
         BTN_4->setObjectName(QString::fromUtf8("BTN_4"));
 
         gridLayout->addWidget(BTN_4, 2, 0, 1, 1);
 
-        BTN_3 = new QPushButton(gridLayoutWidget);
+        BTN_3 = new QPushButton(LoginDialog);
         BTN_3->setObjectName(QString::fromUtf8("BTN_3"));
 
         gridLayout->addWidget(BTN_3, 1, 2, 1, 1);
 
-        BTN_7 = new QPushButton(gridLayoutWidget);
+        BTN_7 = new QPushButton(LoginDialog);
         BTN_7->setObjectName(QString::fromUtf8("BTN_7"));
 
         gridLayout->addWidget(BTN_7, 3, 0, 1, 1);
 
-        BTN_1 = new QPushButton(gridLayoutWidget);
+        BTN_1 = new QPushButton(LoginDialog);
         BTN_1->setObjectName(QString::fromUtf8("BTN_1"));
 
         gridLayout->addWidget(BTN_1, 1, 0, 1, 1);
 
-        BTN_6 = new QPushButton(gridLayoutWidget);
+        BTN_6 = new QPushButton(LoginDialog);
         BTN_6->setObjectName(QString::fromUtf8("BTN_6"));
 
         gridLayout->addWidget(BTN_6, 2, 2, 1, 1);
 
-        BTN_8 = new QPushButton(gridLayoutWidget);
+        BTN_8 = new QPushButton(LoginDialog);
         BTN_8->setObjectName(QString::fromUtf8("BTN_8"));
 
         gridLayout->addWidget(BTN_8, 3, 1, 1, 1);
 
-        PINCODELINE = new QLineEdit(gridLayoutWidget);
+        PINCODELINE = new QLineEdit(LoginDialog);
         PINCODELINE->setObjectName(QString::fromUtf8("PINCODELINE"));
         PINCODELINE->setEchoMode(QLineEdit::Normal);
 
         gridLayout->addWidget(PINCODELINE, 0, 0, 1, 3);
 
-        BTN_5 = new QPushButton(gridLayoutWidget);
+        BTN_5 = new QPushButton(LoginDialog);
         BTN_5->setObjectName(QString::fromUtf8("BTN_5"));
 
         gridLayout->addWidget(BTN_5, 2, 1, 1, 1);
 
-        REMOVE = new QPushButton(gridLayoutWidget);
+        REMOVE = new QPushButton(LoginDialog);
         REMOVE->setObjectName(QString::fromUtf8("REMOVE"));
 
         gridLayout->addWidget(REMOVE, 4, 0, 1, 1);
 
-        CORRECT = new QPushButton(gridLayoutWidget);
+        CORRECT = new QPushButton(LoginDialog);
         CORRECT->setObjectName(QString::fromUtf8("CORRECT"));
 
         gridLayout->addWidget(CORRECT, 4, 1, 1, 1);
 
-        ACCEPT = new QPushButton(gridLayoutWidget);
+        ACCEPT = new QPushButton(LoginDialog);
         ACCEPT->setObjectName(QString::fromUtf8("ACCEPT"));
 
         gridLayout->addWidget(ACCEPT, 4, 2, 1, 1);
+
+
+        verticalLayout->addLayout(gridLayout);
 
 
         retranslateUi(LoginDialog);
